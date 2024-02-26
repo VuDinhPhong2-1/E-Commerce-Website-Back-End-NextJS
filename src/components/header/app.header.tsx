@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link';
-import '../../app/styles/app.css'
-import { Box } from '@mui/material';
+import './app.css'
+import { Avatar, Box } from '@mui/material';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import WorkIcon from '@mui/icons-material/Work';
@@ -14,8 +14,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import InterestsIcon from '@mui/icons-material/Interests';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+import { useSession, signIn, signOut } from "next-auth/react";;
 const AppHeader = () => {
+    const { data: session } = useSession();
     const [isHeaderFixed, setHeaderFixed] = useState(false);
 
     useEffect(() => {
@@ -88,18 +90,24 @@ const AppHeader = () => {
                             <a>Tết không lo</a>
                         </p>
                     </Box>
-                    <Box className="login">
-                        
-                            <a style={{textDecoration: 'none'}} href="/login">
-                                <Box className="login">
+                    <a style={{ textDecoration: 'none' }} href="/api/auth/signin">
+                        <Box className="login">
+                            {session ? (
+                                <>
+                                    <Avatar style={{ marginRight: "10px", marginLeft: "25px" }} src={session.user ? session.user.image ?? '' : ''} />
+
+                                </>
+                            ) : (
+                                <>
                                     <AccountCircleIcon style={{ marginRight: "10px", marginLeft: "25px", color: "#999CAF" }} />
                                     <div>
                                         <div typeof="body" color="textSecondary" className="css-1ajy8lg">Đăng nhập</div>
                                         <div typeof="body" color="textSecondary" className="css-1ajy8lg">Đăng ký</div>
                                     </div>
-                                </Box>
-                            </a>
-                    </Box>
+                                </>
+                            )}
+                        </Box>
+                    </a>
                     <NotificationsNoneIcon style={{ margin: "0 20px", color: "#999CAF", fontSize: "30px" }}></NotificationsNoneIcon>
                     <Box className="cartShopping">
                         <ShoppingCartIcon style={{ marginRight: "10px", marginLeft: "25px", color: "#999CAF" }}></ShoppingCartIcon>

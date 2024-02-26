@@ -20,6 +20,7 @@ import SupportIcon from '@mui/icons-material/Support';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import AppHeader from '@/components/header/app.header';
+import NextAuthWrapper from './lib/next.auth.wrapper';
 
 
 
@@ -28,8 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <ThemeRegistry>
-          <AppHeader></AppHeader>
-          {children}
+          <NextAuthWrapper>
+            <AppHeader></AppHeader>
+            {children}
+          </NextAuthWrapper>
         </ThemeRegistry>
       </body>
     </html>
