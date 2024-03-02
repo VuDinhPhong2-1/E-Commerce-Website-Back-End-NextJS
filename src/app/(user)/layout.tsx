@@ -20,7 +20,7 @@ import SupportIcon from '@mui/icons-material/Support';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
 import AppHeader from '@/components/header/app.header';
-import NextAuthWrapper from './lib/next.auth.wrapper';
+import NextAuthWrapper from '../lib/next.auth.wrapper';
 
 
 
