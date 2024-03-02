@@ -180,7 +180,7 @@ const AppHeader = () => {
                                 </MenuItem>
                             </Menu>
                         </>) : (<>
-                            <a style={{ textDecoration: 'none' }} href="/api/auth/signin">
+                            <a style={{ textDecoration: 'none' }} href="/auth/signin">
                                 <AccountCircleIcon style={{ marginRight: "10px", marginLeft: "25px", color: "#999CAF" }} />
                                 <div>
                                     <div typeof="body" color="textSecondary" className="css-1ajy8lg">Đăng nhập</div>

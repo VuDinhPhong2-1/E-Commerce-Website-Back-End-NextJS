@@ -3,7 +3,7 @@ import NextAuth, { AuthOptions } from "next-auth"
 import { JWT } from "next-auth/jwt";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
-const authOptions: AuthOptions = {
+export const authOptions: AuthOptions = {
     secret: process.env.NO_SECRET,
     // Configure one or more authentication providers
     providers: [
