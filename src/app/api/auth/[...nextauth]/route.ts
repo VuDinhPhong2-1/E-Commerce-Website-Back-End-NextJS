@@ -23,7 +23,7 @@ const authOptions: AuthOptions = {
                 const res = await sendRequest<IBackendRes<JWT>>({
                     url: "http://localhost:8001/api/v1/auth/login",
                     method: "POST",
-                    body: { username: credentials?.username, password: credentials?.password }
+                    body: { type: 'credentials', username: credentials?.username, password: credentials?.password }
                 });
 
                 if (res && res.data) {
@@ -80,7 +80,6 @@ const authOptions: AuthOptions = {
                 session.user = token.user;
                 session.user.image = token.user.image!;
             }
-            //console.log("session",session)
             return session
         }
     }
